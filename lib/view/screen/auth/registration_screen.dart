@@ -17,18 +17,11 @@ class RegistrationScreen extends StatefulWidget {
 
 class _RegistrationScreenState extends State<RegistrationScreen> {
   String otp='';
-  TextEditingController nameController =TextEditingController();
-  TextEditingController monoController =TextEditingController();
-  TextEditingController emailController =TextEditingController();
-  TextEditingController passwordController =TextEditingController();
-  TextEditingController pincodeController =TextEditingController();
-  TextEditingController confirmPasswordController =TextEditingController();
-  final FocusNode name_Focus = FocusNode();
-  final FocusNode email_Focus = FocusNode();
-  final FocusNode pincode_Focus = FocusNode();
+  TextEditingController mono_Controller =TextEditingController();
+  TextEditingController password_Controller =TextEditingController();
   final FocusNode mono_Focus = FocusNode();
   final FocusNode password_Focus = FocusNode();
-  final FocusNode confirm_password_Focus = FocusNode();
+  bool isChecked=false;
 
   @override
   void initState() {
@@ -41,348 +34,231 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorResources.WHITE,
-      body: Column(
-        children: [
-          Container(
-            padding: EdgeInsets.all(AppConstants.itemWidth*0.1),
-            height: AppConstants.itemHeight*0.3,child: Image.asset(Images.logo,fit: BoxFit.fill,),),
-          Expanded(
-            child: Container(
-              width: AppConstants.itemWidth,
-              padding: EdgeInsets.only(top: AppConstants.itemHeight*0.02,left: AppConstants.itemHeight*0.01,right: AppConstants.itemHeight*0.01),
-              decoration: BoxDecoration(
-                  color: ColorResources.WHITE,
-                  borderRadius: BorderRadius.only(topLeft: Radius.circular(AppConstants.itemHeight*0.04),topRight: Radius.circular(AppConstants.itemHeight*0.04)),
-                  boxShadow: [
-                    BoxShadow(
-                        color: ColorResources.BLACK.withOpacity(0.5),
-                        blurRadius: 1
-                    )
-                  ]
+      body: Container(
+        height: AppConstants.itemHeight,
+        width: AppConstants.itemWidth,
+        decoration: const BoxDecoration(
+            color: ColorResources.WHITE,
+            image: DecorationImage(image: AssetImage(Images.bg_auth),fit: BoxFit.fill)
+        ),
+        padding: EdgeInsets.only(top: AppConstants.itemWidth*0.1),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          physics: const ClampingScrollPhysics(),
+          padding: EdgeInsets.symmetric(horizontal: AppConstants.itemWidth*0.04),
+          child: Column(
+            children: [
+              //mobile
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("Phone Number",
+                      textAlign: TextAlign.start,
+                      style: montserratMedium.copyWith(
+                          color: ColorResources.BLACK,
+                          fontSize: AppConstants.itemHeight*0.017)),
+                ],
               ),
-              child: SingleChildScrollView(
-                scrollDirection: Axis.vertical,
-                physics: ClampingScrollPhysics(),
-                padding: EdgeInsets.symmetric(horizontal: 5),
-                child: Column(
-                  children: [
-                    //name
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text("Full Name",
-                            textAlign: TextAlign.start,
-                            style: montserratMedium.copyWith(
-                                color: ColorResources.BLACK,
-                                fontSize: AppConstants.itemHeight*0.017)),
-                      ],
-                    ),
-                    Container(
-                        margin: EdgeInsets.symmetric(vertical: AppConstants.itemHeight*0.005,),
-                        decoration: BoxDecoration(
-                            color: ColorResources.WHITE,
-                            borderRadius:BorderRadius.circular(5),
-                            boxShadow: [
-                              BoxShadow(color: ColorResources.BLACK.withOpacity(0.4),blurRadius: 1),
-                            ]
+              Container(
+                  margin: EdgeInsets.symmetric(vertical: AppConstants.itemHeight*0.005,),
+                  decoration: BoxDecoration(
+                      color: ColorResources.WHITE,
+                      borderRadius:BorderRadius.circular(5),
+                      boxShadow: [
+                        BoxShadow(color: ColorResources.BLACK.withOpacity(0.4),blurRadius: 1),
+                      ]
+                  ),
+                  child:Row(
+                    children: [
+                      SizedBox(width: AppConstants.itemWidth*0.03,),
+                      Image.asset(Images.ic_call,width: 20,height: 20,),
+                      SizedBox(width: AppConstants.itemWidth*0.03,),
+                      Expanded(child: TextFormField(
+                        controller: mono_Controller,
+                        maxLines: 1,
+                        textAlign: TextAlign.left,
+                        focusNode: mono_Focus,
+                        keyboardType: TextInputType.number,
+                        initialValue: null,
+                        textInputAction: TextInputAction.next,
+                        style: montserratRegular.copyWith(color: ColorResources.BLACK,fontSize: AppConstants.itemWidth*0.035),
+                        inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                        decoration: InputDecoration(
+                          hintText: 'Enter your number',
+                          contentPadding: EdgeInsets.symmetric(vertical: AppConstants.itemHeight*0.02, horizontal: 5),
+                          isDense: true,
+                          counterText: '',
+                          focusedBorder: const OutlineInputBorder(borderSide: BorderSide.none),
+                          hintStyle: montserratRegular.copyWith(color: Theme.of(context).hintColor,fontSize: AppConstants.itemWidth*0.035),
+                          errorStyle: const TextStyle(height: 1.5),
+                          border: InputBorder.none,
                         ),
-                        child:Row(
-                          children: [
-                            SizedBox(width: AppConstants.itemWidth*0.03,),
-                            Expanded(child: TextFormField(
-                              controller: nameController,
-                              maxLines: 1,
-                              textAlign: TextAlign.left,
-                              focusNode: name_Focus,
-                              keyboardType: TextInputType.name,
-                              initialValue: null,
-                              textInputAction: TextInputAction.next,
-                              style: montserratRegular.copyWith(color: ColorResources.BLACK,fontSize: AppConstants.itemWidth*0.035),
-                              inputFormatters: [FilteringTextInputFormatter.singleLineFormatter],
-                              decoration: InputDecoration(
-                                hintText: 'Enter Full Name',
-                                contentPadding: EdgeInsets.symmetric(vertical: AppConstants.itemHeight*0.02, horizontal: 5),
-                                isDense: true,
-                                counterText: '',
-                                focusedBorder: OutlineInputBorder(borderSide: BorderSide.none),
-                                hintStyle: montserratRegular.copyWith(color: Theme.of(context).hintColor,fontSize: AppConstants.itemWidth*0.035),
-                                errorStyle: TextStyle(height: 1.5),
-                                border: InputBorder.none,
-                              ),
-                            )),
-                            SizedBox(width: AppConstants.itemWidth*0.03,),
-                          ],
-                        )
-                    ),
-                    SizedBox(height: AppConstants.itemHeight*0.02,),
-
-                    //mobile
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text("Mobile no",
-                            textAlign: TextAlign.start,
-                            style: montserratMedium.copyWith(
-                                color: ColorResources.BLACK,
-                                fontSize: AppConstants.itemHeight*0.017)),
-                      ],
-                    ),
-                    Container(
-                        margin: EdgeInsets.symmetric(vertical: AppConstants.itemHeight*0.005,),
-                        decoration: BoxDecoration(
-                            color: ColorResources.WHITE,
-                            borderRadius:BorderRadius.circular(5),
-                            boxShadow: [
-                              BoxShadow(color: ColorResources.BLACK.withOpacity(0.4),blurRadius: 1),
-                            ]
-                        ),
-                        child:Row(
-                          children: [
-                            SizedBox(width: AppConstants.itemWidth*0.03,),
-                            Expanded(child: TextFormField(
-                              controller: monoController,
-                              maxLines: 1,
-                              textAlign: TextAlign.left,
-                              focusNode: mono_Focus,
-                              maxLength: 10,
-                              keyboardType: TextInputType.number,
-                              initialValue: null,
-                              textInputAction: TextInputAction.next,
-                              style: montserratRegular.copyWith(color: ColorResources.BLACK,fontSize: AppConstants.itemWidth*0.035),
-                              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                              decoration: InputDecoration(
-                                hintText: 'Enter Mobile no',
-                                contentPadding: EdgeInsets.symmetric(vertical: AppConstants.itemHeight*0.02, horizontal: 5),
-                                isDense: true,
-                                counterText: '',
-                                focusedBorder: OutlineInputBorder(borderSide: BorderSide.none),
-                                hintStyle: montserratRegular.copyWith(color: Theme.of(context).hintColor,fontSize: AppConstants.itemWidth*0.035),
-                                errorStyle: TextStyle(height: 1.5),
-                                border: InputBorder.none,
-                              ),
-                            )),
-                            SizedBox(width: AppConstants.itemWidth*0.03,),
-                          ],
-                        )
-                    ),
-                    SizedBox(height: AppConstants.itemHeight*0.02,),
-
-                    //email
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text("Email Id",
-                            textAlign: TextAlign.start,
-                            style: montserratMedium.copyWith(
-                                color: ColorResources.BLACK,
-                                fontSize: AppConstants.itemHeight*0.017)),
-                      ],
-                    ),
-                    Container(
-                        margin: EdgeInsets.symmetric(vertical: AppConstants.itemHeight*0.005,),
-                        decoration: BoxDecoration(
-                            color: ColorResources.WHITE,
-                            borderRadius:BorderRadius.circular(5),
-                            boxShadow: [
-                              BoxShadow(color: ColorResources.BLACK.withOpacity(0.4),blurRadius: 1),
-                            ]
-                        ),
-                        child:Row(
-                          children: [
-                            SizedBox(width: AppConstants.itemWidth*0.03,),
-                            Expanded(child: TextFormField(
-                              controller: emailController,
-                              maxLines: 1,
-                              textAlign: TextAlign.left,
-                              focusNode: email_Focus,
-                              keyboardType: TextInputType.emailAddress,
-                              initialValue: null,
-                              textInputAction: TextInputAction.next,
-                              style: montserratRegular.copyWith(color: ColorResources.BLACK,fontSize: AppConstants.itemWidth*0.035),
-                              inputFormatters: [FilteringTextInputFormatter.singleLineFormatter],
-                              decoration: InputDecoration(
-                                hintText: 'Enter Email id',
-                                contentPadding: EdgeInsets.symmetric(vertical: AppConstants.itemHeight*0.02, horizontal: 5),
-                                isDense: true,
-                                counterText: '',
-                                focusedBorder: OutlineInputBorder(borderSide: BorderSide.none),
-                                hintStyle: montserratRegular.copyWith(color: Theme.of(context).hintColor,fontSize: AppConstants.itemWidth*0.035),
-                                errorStyle: TextStyle(height: 1.5),
-                                border: InputBorder.none,
-                              ),
-                            )),
-                            SizedBox(width: AppConstants.itemWidth*0.03,),
-                          ],
-                        )
-                    ),
-                    SizedBox(height: AppConstants.itemHeight*0.02,),
-
-                    //password
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text("Password",
-                            textAlign: TextAlign.start,
-                            style: montserratMedium.copyWith(
-                                color: ColorResources.BLACK,
-                                fontSize: AppConstants.itemHeight*0.017)),
-                      ],
-                    ),
-                    Container(
-                        margin: EdgeInsets.symmetric(vertical: AppConstants.itemHeight*0.005,),
-                        decoration: BoxDecoration(
-                            color: ColorResources.WHITE,
-                            borderRadius:BorderRadius.circular(5),
-                            boxShadow: [
-                              BoxShadow(color: ColorResources.BLACK.withOpacity(0.4),blurRadius: 1),
-                            ]
-                        ),
-                        child:Row(
-                          children: [
-                            SizedBox(width: AppConstants.itemWidth*0.03,),
-                            Expanded(child: TextFormField(
-                              controller: passwordController,
-                              maxLines: 1,
-                              textAlign: TextAlign.left,
-                              focusNode: password_Focus,
-                              keyboardType: TextInputType.text,
-                              initialValue: null,
-                              textInputAction: TextInputAction.next,
-                              style: montserratRegular.copyWith(color: ColorResources.BLACK,fontSize: AppConstants.itemWidth*0.035),
-                              inputFormatters: [FilteringTextInputFormatter.singleLineFormatter],
-                              decoration: InputDecoration(
-                                hintText: 'Enter Password',
-                                contentPadding: EdgeInsets.symmetric(vertical: AppConstants.itemHeight*0.02, horizontal: 5),
-                                isDense: true,
-                                counterText: '',
-                                focusedBorder: OutlineInputBorder(borderSide: BorderSide.none),
-                                hintStyle: montserratRegular.copyWith(color: Theme.of(context).hintColor,fontSize: AppConstants.itemWidth*0.035),
-                                errorStyle: TextStyle(height: 1.5),
-                                border: InputBorder.none,
-                              ),
-                            )),
-                            SizedBox(width: AppConstants.itemWidth*0.03,),
-                          ],
-                        )
-                    ),
-                    SizedBox(height: AppConstants.itemHeight*0.02,),
-
-                    //confirm password
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text("Confirm Password",
-                            textAlign: TextAlign.start,
-                            style: montserratMedium.copyWith(
-                                color: ColorResources.BLACK,
-                                fontSize: AppConstants.itemHeight*0.017)),
-                      ],
-                    ),
-                    Container(
-                        margin: EdgeInsets.symmetric(vertical: AppConstants.itemHeight*0.005,),
-                        decoration: BoxDecoration(
-                            color: ColorResources.WHITE,
-                            borderRadius:BorderRadius.circular(5),
-                            boxShadow: [
-                              BoxShadow(color: ColorResources.BLACK.withOpacity(0.4),blurRadius: 1),
-                            ]
-                        ),
-                        child:Row(
-                          children: [
-                            SizedBox(width: AppConstants.itemWidth*0.03,),
-                            Expanded(child: TextFormField(
-                              controller: confirmPasswordController,
-                              maxLines: 1,
-                              textAlign: TextAlign.left,
-                              focusNode: confirm_password_Focus,
-                              keyboardType: TextInputType.text,
-                              initialValue: null,
-                              textInputAction: TextInputAction.next,
-                              style: montserratRegular.copyWith(color: ColorResources.BLACK,fontSize: AppConstants.itemWidth*0.035),
-                              inputFormatters: [FilteringTextInputFormatter.singleLineFormatter],
-                              decoration: InputDecoration(
-                                hintText: 'Enter Confirm Password',
-                                contentPadding: EdgeInsets.symmetric(vertical: AppConstants.itemHeight*0.02, horizontal: 5),
-                                isDense: true,
-                                counterText: '',
-                                focusedBorder: OutlineInputBorder(borderSide: BorderSide.none),
-                                hintStyle: montserratRegular.copyWith(color: Theme.of(context).hintColor,fontSize: AppConstants.itemWidth*0.035),
-                                errorStyle: TextStyle(height: 1.5),
-                                border: InputBorder.none,
-                              ),
-                            )),
-                            SizedBox(width: AppConstants.itemWidth*0.03,),
-                          ],
-                        )
-                    ),
-                    SizedBox(height: AppConstants.itemHeight*0.02,),
-
-                    //pincode
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text("Pincode",
-                            textAlign: TextAlign.start,
-                            style: montserratMedium.copyWith(
-                                color: ColorResources.BLACK,
-                                fontSize: AppConstants.itemHeight*0.017)),
-                      ],
-                    ),
-                    Container(
-                        margin: EdgeInsets.symmetric(vertical: AppConstants.itemHeight*0.005,),
-                        decoration: BoxDecoration(
-                            color: ColorResources.WHITE,
-                            borderRadius:BorderRadius.circular(5),
-                            boxShadow: [
-                              BoxShadow(color: ColorResources.BLACK.withOpacity(0.4),blurRadius: 1),
-                            ]
-                        ),
-                        child:Row(
-                          children: [
-                            SizedBox(width: AppConstants.itemWidth*0.03,),
-                            Expanded(child: TextFormField(
-                              controller: pincodeController,
-                              maxLines: 1,
-                              textAlign: TextAlign.left,
-                              focusNode: pincode_Focus,
-                              keyboardType: TextInputType.number,
-                              initialValue: null,
-                              maxLength: 6,
-                              textInputAction: TextInputAction.done,
-                              style: montserratRegular.copyWith(color: ColorResources.BLACK,fontSize: AppConstants.itemWidth*0.035),
-                              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                              decoration: InputDecoration(
-                                hintText: 'Enter Pincode',
-                                contentPadding: EdgeInsets.symmetric(vertical: AppConstants.itemHeight*0.02, horizontal: 5),
-                                isDense: true,
-                                counterText: '',
-                                focusedBorder: OutlineInputBorder(borderSide: BorderSide.none),
-                                hintStyle: montserratRegular.copyWith(color: Theme.of(context).hintColor,fontSize: AppConstants.itemWidth*0.035),
-                                errorStyle: TextStyle(height: 1.5),
-                                border: InputBorder.none,
-                              ),
-                            )),
-                            SizedBox(width: AppConstants.itemWidth*0.03,),
-                          ],
-                        )
-                    ),
-                    SizedBox(height: AppConstants.itemHeight*0.02,),
-
-                    //Submit Button
-                    GestureDetector(
-                        onTap: () {
-                          AppConstants.closeKeyboard();
-                          // Navigator.push(context, MaterialPageRoute(builder: (context) => const OtpScreen(),));
-                        },
-                        child: const CustomButton("Sign Up")),
-
-                    SizedBox(height: AppConstants.itemHeight*0.02,),
-                  ],
-                ),
+                      )),
+                      SizedBox(width: AppConstants.itemWidth*0.03,),
+                    ],
+                  )
               ),
-            ),
-          )
-        ],
+              SizedBox(height: AppConstants.itemHeight*0.02,),
+
+              //password
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("Password",
+                      textAlign: TextAlign.start,
+                      style: montserratMedium.copyWith(
+                          color: ColorResources.BLACK,
+                          fontSize: AppConstants.itemHeight*0.017)),
+                ],
+              ),
+              Container(
+                  margin: EdgeInsets.symmetric(vertical: AppConstants.itemHeight*0.005,),
+                  decoration: BoxDecoration(
+                      color: ColorResources.WHITE,
+                      borderRadius:BorderRadius.circular(5),
+                      boxShadow: [
+                        BoxShadow(color: ColorResources.BLACK.withOpacity(0.4),blurRadius: 1),
+                      ]
+                  ),
+                  child:Row(
+                    children: [
+                      SizedBox(width: AppConstants.itemWidth*0.03,),
+                      Image.asset(Images.ic_password,width: 20,height: 20,),
+                      SizedBox(width: AppConstants.itemWidth*0.03,),
+                      Expanded(child: TextFormField(
+                        controller: password_Controller,
+                        maxLines: 1,
+                        textAlign: TextAlign.left,
+                        focusNode: password_Focus,
+                        keyboardType: TextInputType.text,
+                        initialValue: null,
+                        textInputAction: TextInputAction.done,
+                        style: montserratRegular.copyWith(color: ColorResources.BLACK,fontSize: AppConstants.itemWidth*0.035),
+                        inputFormatters: [FilteringTextInputFormatter.singleLineFormatter],
+                        decoration: InputDecoration(
+                          hintText: 'Enter your password',
+                          contentPadding: EdgeInsets.symmetric(vertical: AppConstants.itemHeight*0.02, horizontal: 5),
+                          isDense: true,
+                          counterText: '',
+                          focusedBorder: const OutlineInputBorder(borderSide: BorderSide.none),
+                          hintStyle: montserratRegular.copyWith(color: Theme.of(context).hintColor,fontSize: AppConstants.itemWidth*0.035),
+                          errorStyle: const TextStyle(height: 1.5),
+                          border: InputBorder.none,
+                        ),
+                      )),
+                      SizedBox(width: AppConstants.itemWidth*0.03,),
+                    ],
+                  )
+              ),
+              SizedBox(height: AppConstants.itemHeight*0.005,),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text("Forgot Password?",
+                      textAlign: TextAlign.end,
+                      style: montserratMedium.copyWith(
+                          color: ColorResources.BLACK,
+                          fontSize: AppConstants.itemHeight*0.015)),
+                ],
+              ),
+              SizedBox(height: AppConstants.itemHeight*0.05,),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Expanded(child:  RichText(
+                    textAlign: TextAlign.center,
+                    text: TextSpan(children: <TextSpan>[
+                      TextSpan(
+                          text: "By signing you agree to our ",
+                          style: montserratRegular.copyWith(fontSize: AppConstants.itemWidth*0.028,color: ColorResources.BLACK)),
+
+                      TextSpan(
+                        text: "Privacy Policy",
+                        style: montserratMedium.copyWith( fontSize: AppConstants.itemWidth*0.028,color: ColorResources.COLOR_PRIMERY),
+                      ),
+
+                      TextSpan(
+                        text: " and ",
+                        style: montserratRegular.copyWith( fontSize: AppConstants.itemWidth*0.028,color: ColorResources.BLACK),),
+
+                      TextSpan(
+                        text: "Terms of use",
+                        style: montserratMedium.copyWith( fontSize: AppConstants.itemWidth*0.028,color: ColorResources.COLOR_PRIMERY),
+                      ),
+                    ]),
+                  ),),
+                ],
+              ),
+              SizedBox(height: AppConstants.itemHeight*0.02,),
+
+              //Submit Button
+              GestureDetector(
+                  onTap: () {
+                    AppConstants.closeKeyboard();
+                    // Navigator.push(context, MaterialPageRoute(builder: (context) => const OtpScreen(),));
+                  },
+                  child: const CustomButton("Sign In")),
+              SizedBox(height: AppConstants.itemHeight*0.03,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded(child: Divider(thickness: 1,)),
+                  Text("Sign Up With",style: montserratRegular.copyWith(fontSize: AppConstants.itemWidth*0.035, color: ColorResources.BLACK),),
+                  Expanded(child: Divider(thickness: 1,)),
+                ],
+              ),
+              SizedBox(height: AppConstants.itemHeight*0.03,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  GestureDetector(
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: ColorResources.WHITE,
+                          border: Border.all(width: 1,color: Color(0xffD3D4DB)),
+                          borderRadius: BorderRadius.circular(
+                              AppConstants.itemWidth * 0.02)),
+                      padding: const EdgeInsets.all(7),
+                      margin: EdgeInsets.symmetric(
+                          horizontal: AppConstants.itemWidth * 0.02),
+                      child: Image.asset(Images.ic_facebook,width: 20,height: 20,),
+                    ),
+                  ),
+                  GestureDetector(
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: ColorResources.WHITE,
+                          border: Border.all(width: 1,color: Color(0xffD3D4DB)),
+                          borderRadius: BorderRadius.circular(
+                              AppConstants.itemWidth * 0.02)),
+                      padding: const EdgeInsets.all(7),
+                      margin: EdgeInsets.symmetric(
+                          horizontal: AppConstants.itemWidth * 0.02),
+                      child: Image.asset(Images.ic_google,width: 20,height: 20,),
+                    ),
+                  ),
+                ],
+              ),
+
+              //Not Account
+              SizedBox(height: AppConstants.itemHeight*0.03,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("Don’t have an account? ",style: montserratRegular.copyWith(fontSize: AppConstants.itemWidth*0.035, color: ColorResources.BLACK),),
+                  GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => const RegistrationScreen()));
+                      },
+                      child: Text("Sign Up",style: montserratMedium.copyWith(fontSize: AppConstants.itemWidth*0.035, color: ColorResources.COLOR_PRIMERY),)),
+                ],
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

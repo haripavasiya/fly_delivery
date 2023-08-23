@@ -202,6 +202,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     // Navigator.push(context, MaterialPageRoute(builder: (context) => const OtpScreen(),));
                   },
                   child: const CustomButton("Sign In")),
+              SizedBox(height: AppConstants.itemHeight*0.03,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -210,9 +211,41 @@ class _LoginScreenState extends State<LoginScreen> {
                   Expanded(child: Divider(thickness: 1,)),
                 ],
               ),
+              SizedBox(height: AppConstants.itemHeight*0.03,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  GestureDetector(
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: ColorResources.WHITE,
+                          border: Border.all(width: 1,color: Color(0xffD3D4DB)),
+                          borderRadius: BorderRadius.circular(
+                              AppConstants.itemWidth * 0.02)),
+                      padding: const EdgeInsets.all(7),
+                      margin: EdgeInsets.symmetric(
+                          horizontal: AppConstants.itemWidth * 0.02),
+                      child: Image.asset(Images.ic_facebook,width: 20,height: 20,),
+                    ),
+                  ),
+                  GestureDetector(
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: ColorResources.WHITE,
+                          border: Border.all(width: 1,color: Color(0xffD3D4DB)),
+                          borderRadius: BorderRadius.circular(
+                              AppConstants.itemWidth * 0.02)),
+                      padding: const EdgeInsets.all(7),
+                      margin: EdgeInsets.symmetric(
+                          horizontal: AppConstants.itemWidth * 0.02),
+                      child: Image.asset(Images.ic_google,width: 20,height: 20,),
+                    ),
+                  ),
+                ],
+              ),
 
               //Not Account
-              SizedBox(height: AppConstants.itemHeight*0.01,),
+              SizedBox(height: AppConstants.itemHeight*0.03,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -221,7 +254,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => const RegistrationScreen()));
                       },
-                      child: Text("Sign Up",style: montserratMedium.copyWith(fontSize: AppConstants.itemWidth*0.035, color: ColorResources.BLACK),)),
+                      child: Text("Sign Up",style: montserratMedium.copyWith(fontSize: AppConstants.itemWidth*0.035, color: ColorResources.COLOR_PRIMERY),)),
                 ],
               ),
             ],
