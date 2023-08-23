@@ -4,6 +4,8 @@ import '../../../utill/app_constants.dart';
 import '../../../utill/color_resources.dart';
 import '../../../utill/images.dart';
 import '../../baseview/button/custom_button.dart';
+import '../auth/login_screen.dart';
+import '../auth/registration_screen.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
@@ -34,12 +36,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               SizedBox(height: AppConstants.itemWidth*0.4,),
 
               GestureDetector(
-                // onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginScreen(),)),
+                onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginScreen(),)),
                 child: const CustomButton("Sign In"),
               ),
               SizedBox(height: AppConstants.itemWidth*0.02,),
               GestureDetector(
-                // onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const RegistrationScreen(),)),
+                onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const RegistrationScreen(),)),
                 child: const CustomButton("Sign Up"),
               ),
             ],

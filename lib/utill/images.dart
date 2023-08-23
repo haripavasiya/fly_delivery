@@ -9,4 +9,9 @@ class Images {
   static const String onBoard_3 = 'assets/image/onBoard_3.png';
   static const String bg_button = 'assets/image/bg_button.png';
   static const String bg_auth = 'assets/image/bg_auth.png';
+  static const String ic_password = 'assets/image/ic_password.png';
+  static const String ic_profile = 'assets/image/ic_profile.png';
+  static const String ic_facebook = 'assets/image/ic_facebook.png';
+  static const String ic_google = 'assets/image/ic_google.png';
+  static const String ic_call = 'assets/image/ic_call.png';
 }
