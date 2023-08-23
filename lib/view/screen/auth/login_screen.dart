@@ -17,6 +17,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+
   String otp='';
   TextEditingController mono_Controller =TextEditingController();
   TextEditingController password_Controller =TextEditingController();
@@ -35,6 +36,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorResources.WHITE,
+      resizeToAvoidBottomInset: false,
       body: Container(
         height: AppConstants.itemHeight,
         width: AppConstants.itemWidth,
@@ -64,7 +66,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   margin: EdgeInsets.symmetric(vertical: AppConstants.itemHeight*0.005,),
                   decoration: BoxDecoration(
                       color: ColorResources.WHITE,
-                      borderRadius:BorderRadius.circular(5),
+                      borderRadius:BorderRadius.circular(AppConstants.itemHeight*0.01),
                       boxShadow: [
                         BoxShadow(color: ColorResources.BLACK.withOpacity(0.4),blurRadius: 1),
                       ]
@@ -116,7 +118,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   margin: EdgeInsets.symmetric(vertical: AppConstants.itemHeight*0.005,),
                   decoration: BoxDecoration(
                       color: ColorResources.WHITE,
-                      borderRadius:BorderRadius.circular(5),
+                      borderRadius:BorderRadius.circular(AppConstants.itemHeight*0.01),
                       boxShadow: [
                         BoxShadow(color: ColorResources.BLACK.withOpacity(0.4),blurRadius: 1),
                       ]

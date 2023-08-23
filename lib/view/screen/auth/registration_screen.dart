@@ -18,9 +18,11 @@ class RegistrationScreen extends StatefulWidget {
 class _RegistrationScreenState extends State<RegistrationScreen> {
   String otp='';
   TextEditingController mono_Controller =TextEditingController();
+  TextEditingController name_Controller =TextEditingController();
   TextEditingController password_Controller =TextEditingController();
   final FocusNode mono_Focus = FocusNode();
   final FocusNode password_Focus = FocusNode();
+  final FocusNode name_Focus = FocusNode();
   bool isChecked=false;
 
   @override
@@ -34,6 +36,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorResources.WHITE,
+      resizeToAvoidBottomInset: false,
       body: Container(
         height: AppConstants.itemHeight,
         width: AppConstants.itemWidth,
@@ -48,6 +51,58 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           padding: EdgeInsets.symmetric(horizontal: AppConstants.itemWidth*0.04),
           child: Column(
             children: [
+              //name
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("Full Name",
+                      textAlign: TextAlign.start,
+                      style: montserratMedium.copyWith(
+                          color: ColorResources.BLACK,
+                          fontSize: AppConstants.itemHeight*0.017)),
+                ],
+              ),
+              Container(
+                  margin: EdgeInsets.symmetric(vertical: AppConstants.itemHeight*0.005,),
+                  decoration: BoxDecoration(
+                      color: ColorResources.WHITE,
+                      borderRadius:BorderRadius.circular(5),
+                      boxShadow: [
+                        BoxShadow(color: ColorResources.BLACK.withOpacity(0.4),blurRadius: 1),
+                      ]
+                  ),
+                  child:Row(
+                    children: [
+                      SizedBox(width: AppConstants.itemWidth*0.03,),
+                      Image.asset(Images.ic_profile,width: 20,height: 20,),
+                      SizedBox(width: AppConstants.itemWidth*0.03,),
+                      Expanded(child: TextFormField(
+                        controller: name_Controller,
+                        maxLines: 1,
+                        textAlign: TextAlign.left,
+                        focusNode: name_Focus,
+                        keyboardType: TextInputType.name,
+                        initialValue: null,
+                        textInputAction: TextInputAction.next,
+                        style: montserratRegular.copyWith(color: ColorResources.BLACK,fontSize: AppConstants.itemWidth*0.035),
+                        inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                        decoration: InputDecoration(
+                          hintText: 'Enter your name',
+                          contentPadding: EdgeInsets.symmetric(vertical: AppConstants.itemHeight*0.02, horizontal: 5),
+                          isDense: true,
+                          counterText: '',
+                          focusedBorder: const OutlineInputBorder(borderSide: BorderSide.none),
+                          hintStyle: montserratRegular.copyWith(color: Theme.of(context).hintColor,fontSize: AppConstants.itemWidth*0.035),
+                          errorStyle: const TextStyle(height: 1.5),
+                          border: InputBorder.none,
+                        ),
+                      )),
+                      SizedBox(width: AppConstants.itemWidth*0.03,),
+                    ],
+                  )
+              ),
+              SizedBox(height: AppConstants.itemHeight*0.02,),
+
               //mobile
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -152,55 +207,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               ),
               SizedBox(height: AppConstants.itemHeight*0.005,),
 
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text("Forgot Password?",
-                      textAlign: TextAlign.end,
-                      style: montserratMedium.copyWith(
-                          color: ColorResources.BLACK,
-                          fontSize: AppConstants.itemHeight*0.015)),
-                ],
-              ),
-              SizedBox(height: AppConstants.itemHeight*0.05,),
-
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Expanded(child:  RichText(
-                    textAlign: TextAlign.center,
-                    text: TextSpan(children: <TextSpan>[
-                      TextSpan(
-                          text: "By signing you agree to our ",
-                          style: montserratRegular.copyWith(fontSize: AppConstants.itemWidth*0.028,color: ColorResources.BLACK)),
-
-                      TextSpan(
-                        text: "Privacy Policy",
-                        style: montserratMedium.copyWith( fontSize: AppConstants.itemWidth*0.028,color: ColorResources.COLOR_PRIMERY),
-                      ),
-
-                      TextSpan(
-                        text: " and ",
-                        style: montserratRegular.copyWith( fontSize: AppConstants.itemWidth*0.028,color: ColorResources.BLACK),),
-
-                      TextSpan(
-                        text: "Terms of use",
-                        style: montserratMedium.copyWith( fontSize: AppConstants.itemWidth*0.028,color: ColorResources.COLOR_PRIMERY),
-                      ),
-                    ]),
-                  ),),
-                ],
-              ),
-              SizedBox(height: AppConstants.itemHeight*0.02,),
-
               //Submit Button
               GestureDetector(
                   onTap: () {
                     AppConstants.closeKeyboard();
                     // Navigator.push(context, MaterialPageRoute(builder: (context) => const OtpScreen(),));
                   },
-                  child: const CustomButton("Sign In")),
+                  child: const CustomButton("Sign up")),
               SizedBox(height: AppConstants.itemHeight*0.03,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -248,12 +261,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Don’t have an account? ",style: montserratRegular.copyWith(fontSize: AppConstants.itemWidth*0.035, color: ColorResources.BLACK),),
+                  Text("Already have an account ? ",style: montserratRegular.copyWith(fontSize: AppConstants.itemWidth*0.035, color: ColorResources.BLACK),),
                   GestureDetector(
                       onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => const RegistrationScreen()));
+                        Navigator.pop(context);
                       },
-                      child: Text("Sign Up",style: montserratMedium.copyWith(fontSize: AppConstants.itemWidth*0.035, color: ColorResources.COLOR_PRIMERY),)),
+                      child: Text("Sign in",style: montserratMedium.copyWith(fontSize: AppConstants.itemWidth*0.035, color: ColorResources.COLOR_PRIMERY),)),
                 ],
               ),
             ],
