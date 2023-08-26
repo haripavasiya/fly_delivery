@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../utill/color_resources.dart';
 
 ThemeData dark = ThemeData(
-  fontFamily: 'Montserrat',
+  fontFamily: 'Poppins',
   primaryColor:ColorResources.COLOR_PRIMERY,
   brightness: Brightness.dark,
   bottomSheetTheme: const BottomSheetThemeData(backgroundColor: Colors.transparent),

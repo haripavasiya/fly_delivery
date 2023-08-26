@@ -3,32 +3,38 @@ import 'package:flutter/material.dart';
 import 'color_resources.dart';
 import 'dimensions.dart';
 
-const montserratLight = TextStyle(
-    fontFamily: 'Montserrat',
+const poppinsLight = TextStyle(
+    fontFamily: 'Poppins',
     color: ColorResources.BLACK,
     fontWeight: FontWeight.w400,
     fontSize: Dimensions.FONT_SIZE_15);
 
-const montserratRegular = TextStyle(
-    fontFamily: 'Montserrat',
+const poppinsRegular = TextStyle(
+    fontFamily: 'Poppins',
     color: ColorResources.BLACK,
     fontWeight: FontWeight.w500,
     fontSize: Dimensions.FONT_SIZE_15);
 
-const montserratMedium = TextStyle(
-    fontFamily: 'Montserrat',
+const poppinsMedium = TextStyle(
+    fontFamily: 'Poppins',
     color: ColorResources.BLACK,
     fontWeight: FontWeight.w600,
     fontSize: Dimensions.FONT_SIZE_15);
 
-const montserratSamiBold = TextStyle(
-    fontFamily: 'Montserrat',
+const poppinsSamiBold = TextStyle(
+    fontFamily: 'Poppins',
     color: ColorResources.BLACK,
     fontWeight: FontWeight.w700,
     fontSize: Dimensions.FONT_SIZE_15);
 
-const montserratBold = TextStyle(
-    fontFamily: 'Montserrat',
+const poppinsBold = TextStyle(
+    fontFamily: 'Poppins',
     color: ColorResources.BLACK,
     fontWeight: FontWeight.w800,
+    fontSize: Dimensions.FONT_SIZE_15);
+
+const merriweatherBold = TextStyle(
+    fontFamily: 'Merriweather',
+    color: ColorResources.BLACK,
+    fontWeight: FontWeight.w700,
     fontSize: Dimensions.FONT_SIZE_15);

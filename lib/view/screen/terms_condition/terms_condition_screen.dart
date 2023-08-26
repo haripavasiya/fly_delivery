@@ -23,7 +23,7 @@ class _TermsConditionScreenState extends State<TermsConditionScreen> {
           SizedBox(height: AppConstants.itemWidth*0.08,),
           const Expanded(
             child: Text("Terms & conditions",
-              style: montserratMedium,
+              style: poppinsMedium,
             ),
           ),
           SizedBox(height: AppConstants.itemWidth*0.08,),

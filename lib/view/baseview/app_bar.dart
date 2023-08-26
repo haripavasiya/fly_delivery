@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../utill/app_constants.dart';
 import '../../utill/color_resources.dart';
+import '../../utill/images.dart';
 import '../../utill/styles.dart';
 
 class TitleView extends StatelessWidget {
@@ -13,20 +14,20 @@ class TitleView extends StatelessWidget {
     return AppBar(
       backgroundColor: ColorResources.WHITE,
       automaticallyImplyLeading: false,
-      elevation: 1,
+      elevation: 0,
       centerTitle: true,
       actionsIconTheme: IconThemeData(color: ColorResources.WHITE),
-      leading: GestureDetector(
-        onTap: () => Navigator.pop(context),
-        child: Container(
-          margin: const EdgeInsets.all(10),
-          alignment: Alignment.center,
-          child: const Icon(Icons.arrow_back,color: ColorResources.BLACK,size: 24,)),
+      leading: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: GestureDetector(
+          onTap: () => Navigator.pop(context),
+          child: Image.asset(Images.ic_back_icon,height: 24,width: 24,),
+        ),
       ),
       title: Text(title,
           textAlign: TextAlign.center,
           maxLines: 1,
-          style: montserratMedium.copyWith(
+          style: poppinsMedium.copyWith(
               color: ColorResources.BLACK,
               fontSize: AppConstants.itemWidth*0.04)),
     );

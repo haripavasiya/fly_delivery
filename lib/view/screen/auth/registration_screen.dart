@@ -7,6 +7,7 @@ import '../../../utill/color_resources.dart';
 import '../../../utill/images.dart';
 import '../../../utill/styles.dart';
 import '../../baseview/button/custom_button.dart';
+import '../otp/otp_screen.dart';
 
 class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({Key? key}) : super(key: key);
@@ -57,7 +58,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 children: [
                   Text("Full Name",
                       textAlign: TextAlign.start,
-                      style: montserratMedium.copyWith(
+                      style: poppinsMedium.copyWith(
                           color: ColorResources.BLACK,
                           fontSize: AppConstants.itemHeight*0.017)),
                 ],
@@ -84,7 +85,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         keyboardType: TextInputType.name,
                         initialValue: null,
                         textInputAction: TextInputAction.next,
-                        style: montserratRegular.copyWith(color: ColorResources.BLACK,fontSize: AppConstants.itemWidth*0.035),
+                        style: poppinsRegular.copyWith(color: ColorResources.BLACK,fontSize: AppConstants.itemWidth*0.035),
                         inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                         decoration: InputDecoration(
                           hintText: 'Enter your name',
@@ -92,7 +93,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                           isDense: true,
                           counterText: '',
                           focusedBorder: const OutlineInputBorder(borderSide: BorderSide.none),
-                          hintStyle: montserratRegular.copyWith(color: Theme.of(context).hintColor,fontSize: AppConstants.itemWidth*0.035),
+                          hintStyle: poppinsRegular.copyWith(color: Theme.of(context).hintColor,fontSize: AppConstants.itemWidth*0.035),
                           errorStyle: const TextStyle(height: 1.5),
                           border: InputBorder.none,
                         ),
@@ -109,7 +110,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 children: [
                   Text("Phone Number",
                       textAlign: TextAlign.start,
-                      style: montserratMedium.copyWith(
+                      style: poppinsMedium.copyWith(
                           color: ColorResources.BLACK,
                           fontSize: AppConstants.itemHeight*0.017)),
                 ],
@@ -136,7 +137,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         keyboardType: TextInputType.number,
                         initialValue: null,
                         textInputAction: TextInputAction.next,
-                        style: montserratRegular.copyWith(color: ColorResources.BLACK,fontSize: AppConstants.itemWidth*0.035),
+                        style: poppinsRegular.copyWith(color: ColorResources.BLACK,fontSize: AppConstants.itemWidth*0.035),
                         inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                         decoration: InputDecoration(
                           hintText: 'Enter your number',
@@ -144,7 +145,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                           isDense: true,
                           counterText: '',
                           focusedBorder: const OutlineInputBorder(borderSide: BorderSide.none),
-                          hintStyle: montserratRegular.copyWith(color: Theme.of(context).hintColor,fontSize: AppConstants.itemWidth*0.035),
+                          hintStyle: poppinsRegular.copyWith(color: Theme.of(context).hintColor,fontSize: AppConstants.itemWidth*0.035),
                           errorStyle: const TextStyle(height: 1.5),
                           border: InputBorder.none,
                         ),
@@ -161,7 +162,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 children: [
                   Text("Password",
                       textAlign: TextAlign.start,
-                      style: montserratMedium.copyWith(
+                      style: poppinsMedium.copyWith(
                           color: ColorResources.BLACK,
                           fontSize: AppConstants.itemHeight*0.017)),
                 ],
@@ -188,7 +189,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         keyboardType: TextInputType.text,
                         initialValue: null,
                         textInputAction: TextInputAction.done,
-                        style: montserratRegular.copyWith(color: ColorResources.BLACK,fontSize: AppConstants.itemWidth*0.035),
+                        style: poppinsRegular.copyWith(color: ColorResources.BLACK,fontSize: AppConstants.itemWidth*0.035),
                         inputFormatters: [FilteringTextInputFormatter.singleLineFormatter],
                         decoration: InputDecoration(
                           hintText: 'Enter your password',
@@ -196,7 +197,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                           isDense: true,
                           counterText: '',
                           focusedBorder: const OutlineInputBorder(borderSide: BorderSide.none),
-                          hintStyle: montserratRegular.copyWith(color: Theme.of(context).hintColor,fontSize: AppConstants.itemWidth*0.035),
+                          hintStyle: poppinsRegular.copyWith(color: Theme.of(context).hintColor,fontSize: AppConstants.itemWidth*0.035),
                           errorStyle: const TextStyle(height: 1.5),
                           border: InputBorder.none,
                         ),
@@ -211,7 +212,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               GestureDetector(
                   onTap: () {
                     AppConstants.closeKeyboard();
-                    // Navigator.push(context, MaterialPageRoute(builder: (context) => const OtpScreen(),));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const OTPScreen(),));
                   },
                   child: const CustomButton("Sign up")),
               SizedBox(height: AppConstants.itemHeight*0.03,),
@@ -219,7 +220,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Expanded(child: Divider(thickness: 1,)),
-                  Text("Sign Up With",style: montserratRegular.copyWith(fontSize: AppConstants.itemWidth*0.035, color: ColorResources.BLACK),),
+                  Text("Sign Up With",style: poppinsRegular.copyWith(fontSize: AppConstants.itemWidth*0.035, color: ColorResources.BLACK),),
                   Expanded(child: Divider(thickness: 1,)),
                 ],
               ),
@@ -261,12 +262,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Already have an account ? ",style: montserratRegular.copyWith(fontSize: AppConstants.itemWidth*0.035, color: ColorResources.BLACK),),
+                  Text("Already have an account ? ",style: poppinsRegular.copyWith(fontSize: AppConstants.itemWidth*0.035, color: ColorResources.BLACK),),
                   GestureDetector(
                       onTap: () {
                         Navigator.pop(context);
                       },
-                      child: Text("Sign in",style: montserratMedium.copyWith(fontSize: AppConstants.itemWidth*0.035, color: ColorResources.COLOR_PRIMERY),)),
+                      child: Text("Sign in",style: poppinsMedium.copyWith(fontSize: AppConstants.itemWidth*0.035, color: ColorResources.COLOR_PRIMERY),)),
                 ],
               ),
             ],

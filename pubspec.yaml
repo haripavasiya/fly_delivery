@@ -41,17 +41,13 @@ dependencies:
   dio: ^4.0.0-prev2
   shared_preferences: ^2.0.5
   intl:
-  flutter_switch: ^0.3.0
-  fl_chart: ^0.40.0
   cached_network_image: ^3.1.0
   flutter_math_fork: ^0.5.0
   url_launcher: ^6.1.0
   fluttertoast:
   image_picker: ^0.8.5
   pin_code_fields: ^7.4.0
-  flutter_cupertino_datetime_picker: ^3.0.0
-  table_calendar: ^3.0.9
-
+  fancy_bottom_navigation_2:
 
 dev_dependencies:
   flutter_test:
@@ -77,21 +73,24 @@ flutter:
   assets:
     - assets/
     - assets/image/
-    - assets/font/montserrat/
+    - assets/font/poppins/
 
   fonts:
-    - family: Montserrat
+    - family: Poppins
       fonts:
-        - asset: assets/font/montserrat/Montserrat-Light.otf
+        - asset: assets/font/poppins/Poppins-Light.ttf
           weight: 400
-        - asset: assets/font/montserrat/Montserrat-Regular.otf
+        - asset: assets/font/poppins/Poppins-Regular.ttf
           weight: 500
-        - asset: assets/font/montserrat/Montserrat-Medium.otf
+        - asset: assets/font/poppins/Poppins-Medium.ttf
           weight: 600
-        - asset: assets/font/montserrat/Montserrat-SemiBold.otf
+        - asset: assets/font/poppins/Poppins-SemiBold.ttf
           weight: 700
-        - asset: assets/font/montserrat/Montserrat-Bold.otf
+        - asset: assets/font/poppins/Poppins-Bold.ttf
           weight: 800
+    - family: Merriweather
+      fonts:
+        - asset: assets/font/merriweather/Merriweather-Bold.ttf
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg

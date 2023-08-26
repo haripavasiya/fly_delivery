@@ -26,7 +26,7 @@ class NoInternetOrDataScreen extends StatelessWidget {
               Image.asset(isNoInternet ? Images.noInternet : Images.noData, width: 160, height: 160),
               const SizedBox(height: 10),
               DefaultTextStyle(
-                style: montserratSamiBold.copyWith(
+                style: poppinsSamiBold.copyWith(
                   fontSize: 30,
                   color: isNoInternet ? Theme.of(context).textTheme.bodyText1?.color : ColorResources.COLOR_PRIMERY,
                 ),
@@ -35,7 +35,7 @@ class NoInternetOrDataScreen extends StatelessWidget {
               const SizedBox(height: 5),
               DefaultTextStyle(
                 textAlign: TextAlign.center,
-                style: montserratRegular, child: Text(isNoInternet ? "No internet connection" : 'No data found',),
+                style: poppinsRegular, child: Text(isNoInternet ? "No internet connection" : 'No data found',),
               ),
               const SizedBox(height: 40),
               isNoInternet ? Container(
@@ -50,7 +50,7 @@ class NoInternetOrDataScreen extends StatelessWidget {
                   child: Container(
                     width: double.infinity,
                     alignment: Alignment.center,
-                    child: Text("Try again", style: montserratMedium.copyWith(color: Theme.of(context).highlightColor, fontSize: 16)),
+                    child: Text("Try again", style: poppinsMedium.copyWith(color: Theme.of(context).highlightColor, fontSize: 16)),
                   ),
                 ),
               ) : const SizedBox.shrink(),

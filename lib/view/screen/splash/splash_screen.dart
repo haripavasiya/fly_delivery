@@ -8,6 +8,7 @@ import '../../../utill/app_constants.dart';
 import '../../../utill/color_resources.dart';
 import '../../../utill/images.dart';
 import '../../../utill/no_internet_screen.dart';
+import '../dashboard/dashboard_screen.dart';
 import '../intro/intro_screen.dart';
 import '../welcome/welcome_screen.dart';
 
@@ -31,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
   route(String isRoute) async {
     Future.delayed(const Duration(seconds: 3)).then((val) {
       if (isRoute=="1") {
-        Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => const WelcomeScreen()));
+        Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => const DashboardScreen()));
       }
       else {
         Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => const IntroScreen()));

@@ -14,4 +14,22 @@ class Images {
   static const String ic_facebook = 'assets/image/ic_facebook.png';
   static const String ic_google = 'assets/image/ic_google.png';
   static const String ic_call = 'assets/image/ic_call.png';
+  static const String ic_search = 'assets/image/ic_search.png';
+  static const String ic_notification = 'assets/image/ic_notification.png';
+  static const String ic_scan = 'assets/image/ic_scan.png';
+  static const String ic_location = 'assets/image/ic_location.png';
+  static const String ic_notifications = 'assets/image/ic_notifications.png';
+  static const String ic_help = 'assets/image/ic_help.png';
+  static const String ic_privacy_policy = 'assets/image/ic_privacy_policy.png';
+  static const String ic_logout = 'assets/image/ic_logout.png';
+  static const String ic_back_icon = 'assets/image/ic_back_icon.png';
+  static const String ic_message = 'assets/image/ic_message.png';
+  static const String ic_shipping = 'assets/image/ic_shipping.png';
+  static const String ic_discount = 'assets/image/ic_discount.png';
+  static const String ic_bell = 'assets/image/ic_bell.png';
+  static const String ic_camera = 'assets/image/ic_camera.png';
+  static const String ic_send_courier = 'assets/image/ic_send_courier.png';
+  static const String ic_track_order = 'assets/image/ic_track_order.png';
+  static const String ic_near_courier = 'assets/image/ic_near_courier.png';
+  static const String ic_map = 'assets/image/ic_map.png';
 }

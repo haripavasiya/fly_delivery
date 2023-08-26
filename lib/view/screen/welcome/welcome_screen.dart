@@ -39,7 +39,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginScreen(),)),
                 child: const CustomButton("Sign In"),
               ),
+
               SizedBox(height: AppConstants.itemWidth*0.02,),
+
               GestureDetector(
                 onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const RegistrationScreen(),)),
                 child: const CustomButton("Sign Up"),

@@ -41,7 +41,9 @@ class MyApp extends StatelessWidget {
       title: AppConstants.appNAME,
       debugShowCheckedModeBanner: false,
       scrollBehavior: MaterialScrollBehavior().copyWith(
-        dragDevices: {PointerDeviceKind.mouse, PointerDeviceKind.touch},
+        dragDevices: {
+          PointerDeviceKind.mouse, PointerDeviceKind.touch
+        },
       ),
       theme: Provider.of<ThemeProvider>(context).darkTheme ? dark : light,
       home: SplashScreen(),

@@ -62,7 +62,7 @@ class _IntroScreenState extends State<IntroScreen> {
                       padding: EdgeInsets.symmetric(vertical:AppConstants.itemWidth*0.03,horizontal: AppConstants.itemWidth*0.08),
                       margin: EdgeInsets.symmetric(horizontal: AppConstants.itemWidth*0.03),
                       child: Text("Skip",
-                        style: montserratRegular.copyWith(fontSize: AppConstants.itemWidth*0.04, color: ColorResources.WHITE),
+                        style: poppinsRegular.copyWith(fontSize: AppConstants.itemWidth*0.04, color: ColorResources.WHITE),
                         textAlign: TextAlign.end,
                       ),
                     ),
@@ -88,7 +88,7 @@ class _IntroScreenState extends State<IntroScreen> {
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: Dimensions.PADDING_SIZE_LARGE),
                           child: Text(onBoardingList[index].title,
-                            style: montserratMedium.copyWith(fontSize: AppConstants.itemWidth*0.06,color: ColorResources.WHITE),
+                            style: poppinsMedium.copyWith(fontSize: AppConstants.itemWidth*0.06,color: ColorResources.WHITE),
                             textAlign: TextAlign.start,
                           ),
                         ),
@@ -96,7 +96,7 @@ class _IntroScreenState extends State<IntroScreen> {
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: Dimensions.PADDING_SIZE_LARGE),
                           child: Text(onBoardingList[index].description,
-                            style: montserratLight.copyWith(fontSize: AppConstants.itemWidth*0.035, color: ColorResources.WHITE.withOpacity(0.6)),
+                            style: poppinsLight.copyWith(fontSize: AppConstants.itemWidth*0.035, color: ColorResources.WHITE.withOpacity(0.6)),
                             textAlign: TextAlign.justify,
                           ),
                         ),

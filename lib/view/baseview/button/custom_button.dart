@@ -19,7 +19,7 @@ class CustomButton extends StatelessWidget {
         image: DecorationImage(image: AssetImage(Images.bg_button),fit: BoxFit.fill),
       ),
       alignment: Alignment.center,
-      child: Text(buttonText,style: montserratMedium.copyWith(color: ColorResources.WHITE,fontSize: AppConstants.itemWidth*0.04),),
+      child: Text(buttonText,style: poppinsMedium.copyWith(color: ColorResources.WHITE,fontSize: AppConstants.itemWidth*0.04),),
     );
   }
 }
@@ -39,7 +39,7 @@ class CustomButtonBorder extends StatelessWidget {
           border: Border.all(color: ColorResources.COLOR_PRIMERY,width: 1),
           borderRadius: BorderRadius.circular(AppConstants.itemWidth*0.04),
       ),
-      child: Text(buttonText,style: montserratMedium.copyWith(color: ColorResources.COLOR_PRIMERY,fontSize: AppConstants.itemWidth*0.04),),
+      child: Text(buttonText,style: poppinsMedium.copyWith(color: ColorResources.COLOR_PRIMERY,fontSize: AppConstants.itemWidth*0.04),),
     );
   }
 }

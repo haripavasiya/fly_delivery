@@ -18,7 +18,7 @@ class ConfirmDialogView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const Widget largeSpacingWidget = SizedBox(height: 20.0,);
-    final Widget messageWidget = Text(description, style: montserratRegular.copyWith(color: ColorResources.BLACK));
+    final Widget messageWidget = Text(description, style: poppinsRegular.copyWith(color: ColorResources.BLACK));
     return Dialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       child: Column(
@@ -40,7 +40,7 @@ class ConfirmDialogView extends StatelessWidget {
                   child: Text(
                     "Confirm",
                     textAlign: TextAlign.center,
-                    style: montserratMedium.copyWith(color: ColorResources.WHITE),
+                    style: poppinsMedium.copyWith(color: ColorResources.WHITE),
                   ),)
               ],
             ),
